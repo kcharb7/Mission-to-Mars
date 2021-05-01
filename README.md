@@ -64,7 +64,7 @@ To scrape the full-size image URL, I added code to parse the data:
 html = browser.html
 img_soup = soup(html, 'html.parser')
 ```
-I used the img tab and class (<img /> and fancybox-image) to build the URL to the full-size image:
+I used the img tag and class fancybox-image to build the URL to the full-size image:
 ```
 # Find the relative image url
 img_url_rel = img_soup.find('img', class_='fancybox-image').get('src')
@@ -269,14 +269,14 @@ In a new “templates” folder, I created an index.html file and used the excla
 </body>
 </html>
 ```
-In the body of my document, I added a <div /> with a class of “container” to set up the container for the Bootstrap components:
+In the body of my document, I added a div tag with a class of “container” to set up the container for the Bootstrap components:
 ```
 <body>
   <div class="container">
   </div>
 </body>
 ```
-For the header, I created an inner <div /> element with the class “jumbotron text-center” added to the opening tag:
+For the header, I created an inner div element with the class “jumbotron text-center” added to the opening tag:
 ```
   <div class="container">
     <div class="jumbotron text-center">
@@ -293,7 +293,7 @@ Within the Jumbotron div, I added the main text and the button to scrape the dat
     </div>
  </div>
 ```
-To add in the news article and summary, I first set up the grid underneath the header by creating a new <div /> with a class of “row” and an id of “mars-news”:
+To add in the news article and summary, I first set up the grid underneath the header by creating a new div tag with a class of “row” and an id of “mars-news”:
 ```
     <!-- Mars News -->
     <div class="row" id="mars-news">
@@ -321,7 +321,7 @@ Next, I nested in two more tags, one with a class of “media” and the other w
       </div>
    </div>
 ```
-I nested a <h2 /> tag inside the media-body <div /> to create a second-level header for the news:
+I nested a h2 tag inside the media-body div to create a second-level header for the news:
 ```
            <div class="media-body">
             <h2>Latest Mars News</h2>
@@ -340,14 +340,14 @@ I similarly added the article summary using paragraph tags:
 ```
 <p>{{mars.news_paragraph}}</p>
 ```
-Next, I added code to insert the image underneath the news article by creating a new <div /> with a class of “row” and an id of “mars-featured-image”:
+Next, I added code to insert the image underneath the news article by creating a new div tag with a class of “row” and an id of “mars-featured-image”:
 ```
     <!-- Featured Image -->
     <div class="row" id="mars-featured-image">
 
     </div>
 ```
-Next, I added the <div /> for the rows, using 8 columns instead of 12 so that the Mars facts table could go alongside the image:
+Next, I added the div tag for the rows, using 8 columns instead of 12 so that the Mars facts table could go alongside the image:
 ```
     <!-- Featured Image -->
     <div class="row" id="mars-featured-image">
@@ -356,7 +356,7 @@ Next, I added the <div /> for the rows, using 8 columns instead of 12 so that th
       </div>
    </div>
 ```
-I used an <h2 /> element to add the title “Featured Mars Image” and the <img /> tag with the link to the image to insert the image:
+I used an h2 element to add the title “Featured Mars Image” and the img tag with the link to the image to insert the image:
 ```
         <h2>Featured Mars Image</h2>
         <img
@@ -365,7 +365,7 @@ I used an <h2 /> element to add the title “Featured Mars Image” and the <img
           alt="Responsive image"
         />
 ```
-To add the Mars facts table alongside the featured image, I added new code with a column class with four columns after the closing tags of the second <div />:
+To add the Mars facts table alongside the featured image, I added new code with a column class with four columns after the closing tags of the second div:
 ```
     <!-- Mars Featured Image -->
     <div class="row" id="mars-featured-image">
@@ -410,7 +410,7 @@ url = 'https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=tar
 
 browser.visit(url)
 ```
-Once I had identified the HTML tag that holds the links to the full-resolution images, I created a list to hold the .jpg image URL string and title for each hemisphere image. I also created an empty dictionary with the keys “title” and “img_url”. I used Beautiful Soup to parse the HTML and find all “h3” tags and create a list of the titles. Then, I created a for loop that iterated through the list of titles and retrieved the title, clicked on each hemisphere link, navigated to the full-resolution image page, and retrieved the full-resolution image URL string. Within the for loop, the full-resolution image URL string was saved as the value for the “img_url” key and the hemisphere image title was saved as the value for the “title” key in the hem_dict dictionary created. Before moving on to the next URL and title, the dictionary with the added values was appended to the hemisphere_image_urls list. To go back to the main page, I included “browser.visit(url)” in the for loop:
+Once I had identified the HTML tag that holds the links to the full-resolution images, I created a list to hold the .jpg image URL string and title for each hemisphere image. I also created an empty dictionary with the keys “title” and “img_url”. I used Beautiful Soup to parse the HTML and find all h3 tags and create a list of the titles. Then, I created a for loop that iterated through the list of titles and retrieved the title, clicked on each hemisphere link, navigated to the full-resolution image page, and retrieved the full-resolution image URL string. Within the for loop, the full-resolution image URL string was saved as the value for the “img_url” key and the hemisphere image title was saved as the value for the “title” key in the hem_dict dictionary created. Before moving on to the next URL and title, the dictionary with the added values was appended to the hemisphere_image_urls list. To go back to the main page, I included “browser.visit(url)” in the for loop:
 ```
 # Create a list and dictionary to hold the images and titles.
 hemisphere_image_urls = []
